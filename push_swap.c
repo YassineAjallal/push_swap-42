@@ -6,7 +6,7 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 11:24:15 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/15 14:06:54 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/15 14:25:59 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,27 @@ int ft_integers(char *farg)
 	return (1);
 }
 
+int ft_range (char *farg)
+{
+	char **split;
+	int i;
+	long toint;
+	
+	i = 0;
+	if(!ft_integers(farg))
+		return (0);
+	split = ft_split(farg, ' ');
+	while(split[i])
+	{
+		toint = ft_atoi(split[i]);
+		printf("atoi : %ld\n", toint);
+		if (toint > INT_MAX || toint < INT_MIN)
+			return (0);
+		i++;
+	}
+	return (1);
+	
+}
 char *ft_strjarg(char **av)
 {
 	int i;
@@ -68,6 +89,6 @@ int main(int ac, char **av, char **envp)
 
 	str = ft_strjarg(av);
 	printf("||%s ||\n", str);
-	ret = ft_integers(str);
+	ret = ft_range(str);
 	printf("|---- %d ----|", ret);
 }

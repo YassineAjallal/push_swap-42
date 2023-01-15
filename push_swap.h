@@ -6,7 +6,7 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 16:25:29 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/15 11:32:00 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/15 14:17:21 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 #include "./libft/libft.h"
 #endif

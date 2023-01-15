@@ -6,7 +6,7 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 00:11:58 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/13 14:23:53 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/15 14:27:30 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
-int		ft_atoi(const char *str);
+long	ft_atoi(const char *str);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
