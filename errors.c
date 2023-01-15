@@ -6,7 +6,7 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 14:32:29 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/15 15:18:22 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/15 20:07:18 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ char *ft_strjarg(char **av)
 	i = 1;
 	farg = malloc(1);
 	farg[0] = '\0';
+
 	while(av[i] && av)
 	{
 		if(ft_strlen(av[i]) == 0)
@@ -114,18 +115,20 @@ int ft_duplicate(char *farg)
 	int len;
 	int *arr;
 	int i;
+	int res;
 	
 	i = 0;
 	if (!ft_range(farg))
 		return (0);
 	split = ft_split(farg, ' ');
 	len = ft_calc2d(split);
-	arr = (int *)malloc(len);
+	arr = malloc(len * sizeof(int));
 	while(i < len)
 	{
 		arr[i] = ft_atoi(split[i]);
 		i++;
 	}
 	ft_free2d(split);
-	return(ft_checkdup(arr, len));
+	res = ft_checkdup(arr, len);
+	return(res);
 }
