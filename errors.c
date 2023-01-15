@@ -6,7 +6,7 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 14:32:29 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/15 15:05:35 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/15 15:18:22 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,11 +97,15 @@ int ft_checkdup(int *arr, int len)
 		while (j < len)
 		{
 			if (arr[i] == arr[j])
+			{
+				free(arr);
 				return (0);
+			}
 			j++;
 		}
 		i++;
 	}
+	free(arr);
 	return (1);
 }
 int ft_duplicate(char *farg)
@@ -122,5 +126,6 @@ int ft_duplicate(char *farg)
 		arr[i] = ft_atoi(split[i]);
 		i++;
 	}
+	ft_free2d(split);
 	return(ft_checkdup(arr, len));
 }

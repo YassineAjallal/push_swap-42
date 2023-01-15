@@ -6,7 +6,7 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 11:24:15 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/15 15:06:04 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/15 15:15:07 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,5 @@ int main(int ac, char **av, char **envp)
 		printf("ERROR \n");
 	else
 		printf("NICE\n");
+	while(1){};
 }
