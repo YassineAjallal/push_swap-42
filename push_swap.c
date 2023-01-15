@@ -6,81 +6,11 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 11:24:15 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/15 14:25:59 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/15 14:35:38 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int ft_integers(char *farg)
-{
-	int i;
-	
-	i = 0;
-	if(!farg)
-		return (0);
-	if ((farg[i] == '-' || farg[i] == '+'))
-		i++;
-	while (farg[i])
-	{
-		if (farg[i] == '-' || farg[i] == '+')
-		{
-			if (!ft_isdigit(farg[i + 1]) || farg[i - 1] != ' ')
-				return (0);
-			else
-				i++;
-		}
-		if(!ft_isdigit(farg[i]) && farg[i] != ' ')
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-int ft_range (char *farg)
-{
-	char **split;
-	int i;
-	long toint;
-	
-	i = 0;
-	if(!ft_integers(farg))
-		return (0);
-	split = ft_split(farg, ' ');
-	while(split[i])
-	{
-		toint = ft_atoi(split[i]);
-		printf("atoi : %ld\n", toint);
-		if (toint > INT_MAX || toint < INT_MIN)
-			return (0);
-		i++;
-	}
-	return (1);
-	
-}
-char *ft_strjarg(char **av)
-{
-	int i;
-	char *farg;
-	char *addspace;
-	char *tmp;
-	
-	i = 1;
-	farg = malloc(1);
-	farg[0] = '\0';
-	while(av[i] && av)
-	{
-		if(ft_strlen(av[i]) == 0)
-			return (0);
-		addspace = ft_strjoin(" ", av[i]);
-		tmp = ft_strjoin(farg, addspace);
-		free(addspace);
-		free(farg);
-		farg = tmp;
-		i++;
-	}
-	return (farg);
-}
 
 int main(int ac, char **av, char **envp)
 {
@@ -91,4 +21,5 @@ int main(int ac, char **av, char **envp)
 	printf("||%s ||\n", str);
 	ret = ft_range(str);
 	printf("|---- %d ----|", ret);
+	while(1){}
 }
