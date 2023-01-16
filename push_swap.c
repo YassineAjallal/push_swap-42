@@ -6,7 +6,7 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 11:24:15 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/16 12:42:41 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/16 20:18:02 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,28 @@ int main(int ac, char **av, char **envp)
 	farg = ft_strjarg(av);
 	if (!farg || !ft_duplicate(farg))
 		printf("ERROR \n");
-	else
-		printf("NICE\n");
 
 	i = 0;
 	s_a = ft_getnumbers(farg, &len);
-	while(i < 3)
+	while(i < len)
 	{
 		printf("---- %d ------\n", s_a[i]);
 		i++;
 	}
+	printf("---------------------\n");
 	printf("LEN : %d\n", len);
+	i = 0;
+	rr(s_a, s_b, len, 3);
+	while(i < len)
+	{
+		printf("s_a : ---- %d ------\n", s_a[i]);
+		i++;
+	}
+	printf("---------------------\n");
+	i = 0;
+	while(i < 3)
+	{
+		printf("s_b : ---- %d ------\n", s_b[i]);
+		i++;
+	}
 }
