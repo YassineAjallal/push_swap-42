@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/14 16:25:29 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/16 09:20:14 by yajallal         ###   ########.fr       */
+/*   Created: 2023/01/16 09:02:58 by yajallal          #+#    #+#             */
+/*   Updated: 2023/01/16 09:20:07 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+#include "push_swap.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-#include "./libft/libft.h"
+void	sa(int *s_a)
+{
+	int	tmp;
 
-// errors.c
-int		ft_integers(char *farg);
-int		ft_range (char *farg);
-char	*ft_strjarg(char **av);
+	tmp = s_a[0];
+	s_a[0] = s_a[1];
+	s_a[1] = tmp;
+}
 
-// arrays.c
-void	ft_free2d(char **str);
-int 	ft_calc2d(char **str);
-int ft_duplicate(char *farg);
+void	sb(int *s_b)
+{
+	int	tmp;
 
-// ft_push.c
-void	sa(int *s_a);
-void	sb(int *s_b);
-void	ss(int *s_a, int *s_b);
-#endif
+	tmp = s_b[0];
+	s_b[0] = s_b[1];
+	s_b[1] = tmp;
+}
+
+void	ss(int *s_a, int *s_b)
+{
+	sa(s_a);
+	sb(s_b);
+}
