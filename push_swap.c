@@ -6,7 +6,7 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 11:24:15 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/16 20:18:02 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/16 20:33:23 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int main(int ac, char **av, char **envp)
 	int *s_a;
 	int len;
 	
-	int s_b[3] = {4, 5, 6};
+	int s_b[6] = {4, 5, 6, 7, 8, 9};
 	int i;
 
 	farg = ft_strjarg(av);
@@ -56,7 +56,8 @@ int main(int ac, char **av, char **envp)
 	printf("---------------------\n");
 	printf("LEN : %d\n", len);
 	i = 0;
-	rr(s_a, s_b, len, 3);
+	rr(s_a, s_b, len, 6);
+	rrr(s_a, s_b, len, 6);
 	while(i < len)
 	{
 		printf("s_a : ---- %d ------\n", s_a[i]);
@@ -64,7 +65,7 @@ int main(int ac, char **av, char **envp)
 	}
 	printf("---------------------\n");
 	i = 0;
-	while(i < 3)
+	while(i < 6)
 	{
 		printf("s_b : ---- %d ------\n", s_b[i]);
 		i++;
