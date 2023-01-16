@@ -6,13 +6,13 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 09:02:58 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/16 20:18:40 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/16 22:23:24 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_push(int *stack, int *len, int number)
+int *ft_push(int *stack, int *len, int number)
 {
 	int *tmp;
 	int i;
@@ -29,9 +29,9 @@ void ft_push(int *stack, int *len, int number)
 		i++;
 		j++;
 	}
-	free(stack);
-	// stack = tmp;
-	return (tmp);
+	//free(stack);
+	stack = tmp;
+	return (stack);
 }
 
 int *ft_pop(int *stack, int *len)
@@ -47,18 +47,38 @@ int *ft_pop(int *stack, int *len)
 		tmp[i] = stack[i + 1];
 		i++;
 	}
-	free(stack);
-	return (tmp);
+	//free(stack);
+	stack = tmp;
+	return (stack);
 }
 
-// int *pa(int *s_a, int *s_b, int *lena, int *lenb)
-// {
-// 	if (*lenb > 0)
-// 	{
-// 		s_a = ft_push(s_a, lena, s_b[0]);
-// 		s_b = ft_pop(s_b, lenb);
-// 	}
-// }
+s_stack *pa(int *s_a, int *s_b, int *lena, int *lenb)
+{
+	s_stack *pab;
+	pab = malloc(sizeof(s_stack));
+	if (*lenb <= 0)
+		return (NULL);
+	else
+	{
+		pab->s_a = ft_push(s_a, lena, s_b[0]);
+		pab->s_b = ft_pop(s_b, lenb);
+		return (pab);
+	}
+}
+
+s_stack *pb(int *s_a, int *s_b, int *lena, int *lenb)
+{
+	s_stack *pab;
+	pab = malloc(sizeof(s_stack));
+	if (*lena <= 0)
+		return (NULL);
+	else
+	{
+		pab->s_b = ft_push(s_b, lenb, s_a[0]);
+		pab->s_a = ft_pop(s_a, lena);
+		return (pab);
+	}
+}
 // int main()
 // {
 // 	int *s_a;
