@@ -6,12 +6,23 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 14:32:29 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/15 20:07:18 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/16 08:31:02 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int ft_skip(char *av)
+{
+	int i;
+
+	i = 0;
+	while(av[i] == ' ')
+	 i++;
+	if(!av[i])
+		return (0);
+	return (1);
+}
 char *ft_strjarg(char **av)
 {
 	int i;
@@ -25,7 +36,7 @@ char *ft_strjarg(char **av)
 
 	while(av[i] && av)
 	{
-		if(ft_strlen(av[i]) == 0)
+		if(ft_strlen(av[i]) == 0 || !ft_skip(av[i]))
 			return (0);
 		addspace = ft_strjoin(" ", av[i]);
 		tmp = ft_strjoin(farg, addspace);
