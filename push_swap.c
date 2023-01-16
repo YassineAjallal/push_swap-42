@@ -6,13 +6,13 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 11:24:15 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/16 09:21:44 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/16 12:42:41 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int *ft_getnumbers(char *farg)
+int *ft_getnumbers(char *farg, int *lena)
 {
 	int i;
 	char **split;
@@ -23,6 +23,7 @@ int *ft_getnumbers(char *farg)
 	split = ft_split(farg, ' ');
 	len = ft_calc2d(split);
 	numbers = malloc(len * sizeof(int));
+	*lena = len;
 	while(i < len)
 	{
 		numbers[i] = ft_atoi(split[i]);
@@ -36,6 +37,8 @@ int main(int ac, char **av, char **envp)
 {
 	char *farg;
 	int *s_a;
+	int len;
+	
 	int s_b[3] = {4, 5, 6};
 	int i;
 
@@ -46,10 +49,11 @@ int main(int ac, char **av, char **envp)
 		printf("NICE\n");
 
 	i = 0;
-	s_a = ft_getnumbers(farg);
+	s_a = ft_getnumbers(farg, &len);
 	while(i < 3)
 	{
 		printf("---- %d ------\n", s_a[i]);
 		i++;
 	}
+	printf("LEN : %d\n", len);
 }
