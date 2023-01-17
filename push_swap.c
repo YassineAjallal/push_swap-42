@@ -6,7 +6,7 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 11:24:15 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/17 12:04:53 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/17 15:16:52 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int *ft_getnumbers(char *farg, int *lena)
 	char **split;
 	int len;
 	int *numbers;
-	s_stack *pab;
 	
 	i = 0;
 	split = ft_split(farg, ' ');
@@ -34,16 +33,31 @@ int *ft_getnumbers(char *farg, int *lena)
 	return (numbers);
 }
 
-int main(int ac, char **av, char **envp)
+int main(int ac, char **av)
 {
-	int *s_b;
 	int *s_a;
-	int lena;
+	int *s_b = NULL;
 	int lenb;
-	char *farg;
+	int lena;
 	s_stack *pab;
+	ac++;
+	char *farg;
+	int i = 0;
 	
 	farg = ft_strjarg(av);
 	s_a = ft_getnumbers(farg, &lena);
+	pab = ft_sort5(s_a, s_b, &lena, &lenb);
+	while(i < 2)
+	{
+		printf("%d\n", pab->s_a[i]);
+		i++;
+	}
+	printf("--------------------\n");
+	i = 0;
+	while(i < 3)
+	{
+		printf("%d\n", pab->s_b[i]);
+		i++;
+	}
 	
 }

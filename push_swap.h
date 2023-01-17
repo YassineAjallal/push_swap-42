@@ -6,7 +6,7 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 16:25:29 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/16 22:04:05 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/17 14:54:21 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,8 @@ int 	*ft_push(int *stack, int *len, int number);
 int 	*ft_pop(int *stack, int *len);
 s_stack	*pa(int *s_a, int *s_b, int *lena, int *lenb);
 s_stack	*pb(int *s_a, int *s_b, int *lena, int *lenb);
+
+// sort.c
+void ft_sort3(int *stack);
+s_stack *ft_sort5(int *s_a, int *s_b, int *lena, int *lenb);
 #endif
