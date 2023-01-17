@@ -6,7 +6,7 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 20:06:12 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/16 20:17:15 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/17 11:18:48 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void ra(int *s_a, int len)
 		i++;
 	}
 	s_a[len - 1] = tmp;
+	printf("ra\n");
 }
 
 void rb(int *s_b, int len)
@@ -40,6 +41,7 @@ void rb(int *s_b, int len)
 		i++;
 	}
 	s_b[len - 1] = tmp;
+	printf("rb\n");
 }
 
 void rr(int *s_a, int *s_b, int lena, int lenb)

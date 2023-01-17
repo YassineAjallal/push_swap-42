@@ -6,7 +6,7 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 09:02:58 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/16 22:23:24 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/17 11:18:17 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int *ft_pop(int *stack, int *len)
 		tmp[i] = stack[i + 1];
 		i++;
 	}
-	//free(stack);
+	free(stack);
 	stack = tmp;
 	return (stack);
 }
@@ -62,6 +62,7 @@ s_stack *pa(int *s_a, int *s_b, int *lena, int *lenb)
 	{
 		pab->s_a = ft_push(s_a, lena, s_b[0]);
 		pab->s_b = ft_pop(s_b, lenb);
+		printf("pa\n");
 		return (pab);
 	}
 }
@@ -76,6 +77,7 @@ s_stack *pb(int *s_a, int *s_b, int *lena, int *lenb)
 	{
 		pab->s_b = ft_push(s_b, lenb, s_a[0]);
 		pab->s_a = ft_pop(s_a, lena);
+		printf("pb\n");
 		return (pab);
 	}
 }

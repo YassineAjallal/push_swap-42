@@ -6,7 +6,7 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 11:24:15 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/16 22:22:37 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/17 12:04:53 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int *ft_getnumbers(char *farg, int *lena)
 	char **split;
 	int len;
 	int *numbers;
+	s_stack *pab;
 	
 	i = 0;
 	split = ft_split(farg, ' ');
@@ -35,60 +36,14 @@ int *ft_getnumbers(char *farg, int *lena)
 
 int main(int ac, char **av, char **envp)
 {
-	char *farg;
+	int *s_b;
 	int *s_a;
 	int lena;
+	int lenb;
+	char *farg;
 	s_stack *pab;
-	int lenb = 0;
 	
-	int *s_b;
-	int i;
-
 	farg = ft_strjarg(av);
-	if (!farg || !ft_duplicate(farg))
-		printf("ERROR \n");
-
 	s_a = ft_getnumbers(farg, &lena);
-	i = 0;
-	while(i < lena)
-	{
-		printf("---- %d ------\n", s_a[i]);
-		i++;
-	}
-	printf("---------------------\n");
-	printf("1 lena : %d lenb : %d\n", lena, lenb);
-	pab = pb(s_a, s_b, &lena, &lenb);
-	s_a =  pab->s_a;
-	s_b =  pab->s_b;
-	printf("1 lena : %d lenb : %d\n", lena, lenb);
-	pab = pb(s_a, s_b, &lena, &lenb);
-	s_a =  pab->s_a;
-	s_b =  pab->s_b;
-	printf("1 lena : %d lenb : %d\n", lena, lenb);
-	pab = pb(s_a, s_b, &lena, &lenb);
-	s_a =  pab->s_a;
-	s_b =  pab->s_b;
-	printf("1 lena : %d lenb : %d\n", lena, lenb);
-	pab = pb(s_a, s_b, &lena, &lenb);
-	s_a =  pab->s_a;
-	s_b =  pab->s_b;
-	printf("1 lena : %d lenb : %d\n", lena, lenb);
-	pab = pb(s_a, s_b, &lena, &lenb);
-	s_a =  pab->s_a;
-	s_b =  pab->s_b;
-	printf("1 lena : %d lenb : %d\n", lena, lenb);
 	
-	i = 0;
-	while(i < lena)
-	{
-		printf("---- %d ------\n", s_a[i]);
-		i++;
-	}
-	printf("---------------------\n");
-	i = 0;
-	while(i < lenb)
-	{
-		printf("---- %d ------\n", s_b[i]);
-		i++;
-	}
 }

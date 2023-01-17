@@ -1,49 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse.c                                          :+:      :+:    :+:   */
+/*   ft_five.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 20:19:06 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/17 12:52:20 by yajallal         ###   ########.fr       */
+/*   Created: 2023/01/17 11:24:50 by yajallal          #+#    #+#             */
+/*   Updated: 2023/01/17 11:33:03 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void rra(int *s_a, int len)
+int main()
 {
-	int i;
-	int tmp;
-
-	i = len - 1;
-	tmp = s_a[i];
-	while(i > 0)
+	int *s_a;
+	int *s_b;
+	s_stack *pab;
+	int lena = 5;
+	int lenb;
+	int j;
+	int i = 0;
+	
+	while(i < lena)
 	{
-		s_a[i] = s_a[i - 1];
-		i--;
+		j = i + 1;
+		if(s_a[i] < s_a[j])
+		{
+			pab = pb(s_a, s_b, &lena, &lenb);
+			s_a = pab->s_a;
+			s_b = pab->s_b;
+			i = 0;
+			
+		}
 	}
-	s_a[i] = tmp;
-}
-
-void rrb(int *s_b, int len)
-{
-	int i;
-	int tmp;
-
-	i = len - 1;
-	tmp = s_b[i];
-	while(i > 0)
-	{
-		s_b[i] = s_b[i - 1];
-		i--;
-	}
-	s_b[i] = tmp;
-}
-
-void rrr(int *s_a, int *s_b, int lena, int lenb)
-{
-	rra(s_a, lena);
-	rrb(s_b, lenb);
 }
