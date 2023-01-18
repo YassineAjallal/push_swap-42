@@ -6,16 +6,16 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 20:19:06 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/17 12:52:20 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/18 19:29:40 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void rra(int *s_a, int len)
+void rra(s_number *s_a, int len)
 {
 	int i;
-	int tmp;
+	s_number tmp;
 
 	i = len - 1;
 	tmp = s_a[i];
@@ -25,12 +25,13 @@ void rra(int *s_a, int len)
 		i--;
 	}
 	s_a[i] = tmp;
+	printf("rra\n");
 }
 
-void rrb(int *s_b, int len)
+void rrb(s_number *s_b, int len)
 {
 	int i;
-	int tmp;
+	s_number tmp;
 
 	i = len - 1;
 	tmp = s_b[i];
@@ -40,9 +41,10 @@ void rrb(int *s_b, int len)
 		i--;
 	}
 	s_b[i] = tmp;
+	printf("rrb\n");
 }
 
-void rrr(int *s_a, int *s_b, int lena, int lenb)
+void rrr(s_number *s_a, s_number *s_b, int lena, int lenb)
 {
 	rra(s_a, lena);
 	rrb(s_b, lenb);

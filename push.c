@@ -6,22 +6,22 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 09:02:58 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/17 14:55:38 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/18 19:38:51 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int *ft_push(int *stack, int *len, int number)
+s_number *ft_push(s_number *stack, int *len, s_number number)
 {
-	int *tmp;
+	s_number *tmp;
 	int i;
 	int j;
 	
 	i = 1;
 	j = 0;
 	*len += 1;
-	tmp = malloc((*len) * sizeof(int));
+	tmp = malloc((*len) * sizeof(s_number));
 	tmp[0] = number;
 	while(i < *len)
 	{
@@ -34,14 +34,14 @@ int *ft_push(int *stack, int *len, int number)
 	return (stack);
 }
 
-int *ft_pop(int *stack, int *len)
+s_number *ft_pop(s_number *stack, int *len)
 {
-	int *tmp;
+	s_number *tmp;
 	int i;
 	
 	i = 0;
 	*len -= 1;
-	tmp = malloc((*len) * sizeof(int));
+	tmp = malloc((*len) * sizeof(s_number));
 	while(i < *len)
 	{
 		tmp[i] = stack[i + 1];
@@ -52,7 +52,7 @@ int *ft_pop(int *stack, int *len)
 	return (stack);
 }
 
-s_stack *pa(int *s_a, int *s_b, int *lena, int *lenb)
+s_stack *pa(s_number *s_a, s_number *s_b, int *lena, int *lenb)
 {
 	s_stack *pab;
 	pab = malloc(sizeof(s_stack));
@@ -62,11 +62,12 @@ s_stack *pa(int *s_a, int *s_b, int *lena, int *lenb)
 	{
 		pab->s_a = ft_push(s_a, lena, s_b[0]);
 		pab->s_b = ft_pop(s_b, lenb);
+		printf("pa\n");
 		return (pab);
 	}
 }
 
-s_stack *pb(int *s_a, int *s_b, int *lena, int *lenb)
+s_stack *pb(s_number *s_a, s_number *s_b, int *lena, int *lenb)
 {
 	s_stack *pab;
 	pab = malloc(sizeof(s_stack));
@@ -76,6 +77,7 @@ s_stack *pb(int *s_a, int *s_b, int *lena, int *lenb)
 	{
 		pab->s_b = ft_push(s_b, lenb, s_a[0]);
 		pab->s_a = ft_pop(s_a, lena);
+		printf("pb\n");
 		return (pab);
 	}
 }

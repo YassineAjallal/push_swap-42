@@ -6,31 +6,33 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 10:20:04 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/17 14:40:58 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/18 19:33:11 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(int *s_a)
+void	sa(s_number *s_a)
 {
-	int	tmp;
+	s_number	tmp;
 
 	tmp = s_a[0];
 	s_a[0] = s_a[1];
 	s_a[1] = tmp;
+	printf("sa\n");
 }
 
-void	sb(int *s_b)
+void	sb(s_number *s_b)
 {
-	int	tmp;
+	s_number	tmp;
 
 	tmp = s_b[0];
 	s_b[0] = s_b[1];
 	s_b[1] = tmp;
+	printf("sb\n");
 }
 
-void	ss(int *s_a, int *s_b)
+void	ss(s_number *s_a, s_number *s_b)
 {
 	sa(s_a);
 	sb(s_b);
