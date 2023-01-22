@@ -6,7 +6,7 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 16:25:29 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/18 19:39:05 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/22 19:41:02 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,21 @@
 #include <limits.h>
 #include "./libft/libft.h"
 
-typedef struct t_number
-{
-	int value;
-	int index;
-} s_number;
-
 typedef struct t_stack
 {
-	s_number *s_a;
-	s_number *s_b;
+	int *arr;
+	int len;
 } s_stack;
+
+typedef struct t_stacks
+{
+	s_stack *s_a;
+	s_stack *s_b;
+} s_stacks;
 
 // errors.c
 int		ft_integers(char *farg);
-int		ft_range(char *farg);
+int		ft_range (char *farg);
 char	*ft_strjarg(char **av);
 
 // arrays.c
@@ -41,28 +41,45 @@ int 	ft_calc2d(char **str);
 int		ft_duplicate(char *farg);
 
 // swap.c
-void	sa(s_number *s_a);
-void	sb(s_number *s_b);
-void	ss(s_number *s_a, s_number *s_b);
+void	sa(s_stack *s_a);
+void	sb(s_stack *s_b);
+void	ss(s_stack *s_a, s_stack *s_b);
 
 // rotate.c
-void ra(s_number *s_a, int len);
-void rb(s_number *s_b, int len);
-void rr(s_number *s_a, s_number *s_b, int lena, int lenb);
+void ra(s_stack *s_a);
+void rb(s_stack *s_b);
+void rr(s_stack *s_a, s_stack *s_b);
 
 // reverse.c
-void rra(s_number *s_a, int len);
-void rrb(s_number *s_b, int len);
-void rrr(s_number *s_a, s_number *s_b, int lena, int lenb);
+void rra(s_stack *s_a);
+void rrb(s_stack *s_b);
+void rrr(s_stack *s_a, s_stack *s_b);
 
 // push.c
-s_stack	*ft_push(s_number *stack, int *len, s_number number);
-s_stack	*ft_pop(s_number *stack, int *len);
-s_stack	*pa(s_number *s_a, s_number *s_b, int *lena, int *lenb);
-s_stack	*pb(s_number *s_a, s_number *s_b, int *lena, int *lenb);
+s_stack 	*ft_push(s_stack *stack, int number);
+s_stack 	*ft_pop(s_stack *stack);
+s_stacks	*pa(s_stack *s_a, s_stack *s_b);
+s_stacks	*pb(s_stack *s_a, s_stack *s_b);
 
 // sort.c
-void ft_sort3(s_number *stack);
-s_stack *ft_sort5(s_number *s_a, s_number *s_b, int *lena, int *lenb);
-int ft_biggest(s_number *stack, int len);
+// void ft_sort3(int *stack);
+s_stacks *ft_sort5(s_stack *s_a, s_stack *s_b);
+s_stacks *ft_sort4(int *s_a, int *s_b, int *lena, int *lenb);
+void ft_rotatea(s_stack *stack, int pos);
+void ft_rotateb(s_stack *stack, int pos);
+
+// bigsmall.c
+int ft_biggest(s_stack *stack);
+int ft_smallest(s_stack *stack);
+s_stacks *ft_twornb(s_stack *s_a, s_stack *s_b);
+
+// mouve.c
+int ft_position(s_stack *stack, int number);
+int ft_index(int posa, int posb, int lena, int lenb);
+int ft_bestmouve(s_stack *s_a, s_stack *s_b);
+
+void ft_common(s_stack *s_a, s_stack *s_b, int posa, int posb);
+void ft_swap(s_stack *s_a, s_stack *s_b, int posa, int posb);
+void ft_rcommon(s_stack *s_a, s_stack *s_b, int posa, int posb);
+
 #endif

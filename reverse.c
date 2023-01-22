@@ -6,46 +6,44 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 20:19:06 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/18 19:29:40 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/22 13:31:28 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void rra(s_number *s_a, int len)
+void rra(s_stack *s_a)
 {
 	int i;
-	s_number tmp;
+	int tmp;
 
-	i = len - 1;
-	tmp = s_a[i];
+	i = s_a->len - 1;
+	tmp = s_a->arr[i];
 	while(i > 0)
 	{
-		s_a[i] = s_a[i - 1];
+		s_a->arr[i] = s_a->arr[i - 1];
 		i--;
 	}
-	s_a[i] = tmp;
-	printf("rra\n");
+	s_a->arr[i] = tmp;
 }
 
-void rrb(s_number *s_b, int len)
+void rrb(s_stack *s_b)
 {
 	int i;
-	s_number tmp;
+	int tmp;
 
-	i = len - 1;
-	tmp = s_b[i];
+	i = s_b->len - 1;
+	tmp = s_b->arr[i];
 	while(i > 0)
 	{
-		s_b[i] = s_b[i - 1];
+		s_b->arr[i] = s_b->arr[i - 1];
 		i--;
 	}
-	s_b[i] = tmp;
-	printf("rrb\n");
+	s_b->arr[i] = tmp;
 }
 
-void rrr(s_number *s_a, s_number *s_b, int lena, int lenb)
+void rrr(s_stack *s_a, s_stack *s_b)
 {
-	rra(s_a, lena);
-	rrb(s_b, lenb);
+	rra(s_a);
+	rrb(s_b);
 }

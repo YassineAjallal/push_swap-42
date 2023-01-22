@@ -6,95 +6,79 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 09:02:58 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/18 19:38:51 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/21 19:58:13 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-s_number *ft_push(s_number *stack, int *len, s_number number)
+s_stack *ft_push(s_stack *stack, int number)
 {
-	s_number *tmp;
+	int *tmp;
 	int i;
 	int j;
 	
 	i = 1;
 	j = 0;
-	*len += 1;
-	tmp = malloc((*len) * sizeof(s_number));
+	stack->len += 1;
+	tmp = malloc(stack->len * sizeof(int));
 	tmp[0] = number;
-	while(i < *len)
+	while(i < stack->len)
 	{
-		tmp[i] = stack[j];
+		tmp[i] = stack->arr[j];
 		i++;
 		j++;
 	}
-	//free(stack);
-	stack = tmp;
+	free(stack->arr);
+	stack->arr = tmp;
 	return (stack);
 }
 
-s_number *ft_pop(s_number *stack, int *len)
+s_stack *ft_pop(s_stack *stack)
 {
-	s_number *tmp;
+	int *tmp;
 	int i;
 	
 	i = 0;
-	*len -= 1;
-	tmp = malloc((*len) * sizeof(s_number));
-	while(i < *len)
+	stack->len -= 1;
+	tmp = malloc(stack->len * sizeof(int));
+	while(i < stack->len)
 	{
-		tmp[i] = stack[i + 1];
+		tmp[i] = stack->arr[i + 1];
 		i++;
 	}
-	free(stack);
-	stack = tmp;
+	free(stack->arr);
+	stack->arr = tmp;
 	return (stack);
 }
 
-s_stack *pa(s_number *s_a, s_number *s_b, int *lena, int *lenb)
+s_stacks *pa(s_stack *s_a, s_stack *s_b)
 {
-	s_stack *pab;
-	pab = malloc(sizeof(s_stack));
-	if (*lenb <= 0)
+	s_stacks *pab;
+	pab = malloc(sizeof(s_stacks));
+	if (s_b->len <= 0)
 		return (NULL);
 	else
 	{
-		pab->s_a = ft_push(s_a, lena, s_b[0]);
-		pab->s_b = ft_pop(s_b, lenb);
+		pab->s_a = ft_push(s_a, s_b->arr[0]);
+		pab->s_b = ft_pop(s_b);
 		printf("pa\n");
 		return (pab);
 	}
 }
 
-s_stack *pb(s_number *s_a, s_number *s_b, int *lena, int *lenb)
+s_stacks *pb(s_stack *s_a, s_stack *s_b)
 {
-	s_stack *pab;
-	pab = malloc(sizeof(s_stack));
-	if (*lena <= 0)
+	s_stacks *pab;
+	
+	pab = malloc(sizeof(s_stacks));
+	if (s_a->len <= 0)
 		return (NULL);
 	else
 	{
-		pab->s_b = ft_push(s_b, lenb, s_a[0]);
-		pab->s_a = ft_pop(s_a, lena);
+		pab->s_b = ft_push(s_b, s_a->arr[0]);
+		pab->s_a = ft_pop(s_a);
 		printf("pb\n");
 		return (pab);
 	}
 }
-// int main()
-// {
-// 	int *s_a;
-// 	int len = 3;
-// 	int i = 0;
-
-// 	s_a = malloc(3 * sizeof(int));
-// 	s_a[0] = 1;
-// 	s_a[1] = 2;
-// 	s_a[2] = 3;
-// 	ft_push(s_a, &len, 0);
-// 	while(i < len)
-// 	{
-// 		printf("%d\n", s_a[i]);
-// 		i++;
-// 	}
-// }

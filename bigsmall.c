@@ -1,49 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   bigsmall.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 20:06:12 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/22 13:31:20 by yajallal         ###   ########.fr       */
+/*   Created: 2023/01/18 21:28:23 by yajallal          #+#    #+#             */
+/*   Updated: 2023/01/21 19:20:59 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ra(s_stack *s_a)
+int ft_biggest(s_stack *stack)
 {
 	int i;
-	int tmp;
+	int tmpn;
+	int tmpi;
 	
-	tmp = s_a->arr[0];
-	i = 1;
-	while(i < s_a->len)
+	i = 0;
+	tmpn = stack->arr[0];
+	tmpi = 0;
+	
+	while(i < stack->len)
 	{
-		s_a->arr[i - 1] = s_a->arr[i];
+		if(stack->arr[i] > tmpn)
+		{
+			tmpn = stack->arr[i];
+			tmpi = i;
+		}
 		i++;
 	}
-	s_a->arr[s_a->len - 1] = tmp;
+	return (tmpi);
 }
 
-void rb(s_stack *s_b)
+int ft_smallest(s_stack *stack)
 {
 	int i;
-	int tmp;
+	int tmpn;
+	int tmpi;
 	
-	tmp = s_b->arr[0];
-	i = 1;
-	while(i < s_b->len)
+	i = 0;
+	tmpn = stack->arr[0];
+	tmpi = 0;
+	
+	while(i < stack->len)
 	{
-		s_b->arr[i - 1] = s_b->arr[i];
+		if(stack->arr[i] < tmpn)
+		{
+			tmpn = stack->arr[i];
+			tmpi = i;
+		}
 		i++;
 	}
-	s_b->arr[s_b->len - 1] = tmp;
-}
-
-void rr(s_stack *s_a, s_stack *s_b)
-{
-	ra(s_a);
-	rb(s_b);
+	return (tmpi);
 }
