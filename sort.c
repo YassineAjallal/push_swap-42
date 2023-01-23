@@ -6,156 +6,121 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 12:31:30 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/22 22:12:19 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/23 22:32:56 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 
-// void ft_sort3(int *stack)
-// {
-// 	int i;
-// 	i = 0;
-// 	if ((stack[0] > stack[1]) && stack[0] > stack[2])
-// 	{
-// 		if(stack[1] > stack[2])
-// 		{
-// 			ra(stack, 3);
-// 			sa(stack);
-// 		}
-// 		else 
-// 			ra(stack, 3);
-// 	}
-// 	else
-// 	{
-// 		if(stack[0] > stack[1])
-// 			sa(stack);
-// 		else if(stack[0] > stack[2])
-// 			rra(stack, 3);
-// 		else if (stack[1] > stack[2]){
-// 			rra(stack, 3);
-// 			sa(stack);
-// 		}
-// 	}
-// }
-
-void ft_rotatea(s_stack *stack, int pos)
+void ft_sort3(s_stack *stack)
 {
-	int i;
-	
-	if (pos <= stack->len / 2)
+	if ((stack->arr[0] > stack->arr[1]) && stack->arr[0] > stack->arr[2])
 	{
-		i = 0;
-		while(i < pos)
+		if(stack->arr[1] > stack->arr[2])
 		{
 			ra(stack);
 			ft_putstr_fd("ra\n", 1);
-			i++;
+			sa(stack);
 		}
+		else
+		{
+			ra(stack);
+			ft_putstr_fd("ra\n", 1);
+		} 
 	}
-	else if (pos > stack->len / 2)
+	else
 	{
-		i = 0;
-		while(i < stack->len - pos)
+		if(stack->arr[0] > stack->arr[1])
+			sa(stack);
+		else if(stack->arr[0] > stack->arr[2])
 		{
 			rra(stack);
 			ft_putstr_fd("rra\n", 1);
-			i++;
+		}
+		else if (stack->arr[1] > stack->arr[2]){
+			rra(stack);
+			ft_putstr_fd("rra\n", 1);
+			sa(stack);
 		}
 	}
 }
-void ft_rotateb(s_stack *stack, int pos)
-{
-	int i;
-	
-	if (pos <= stack->len / 2)
-	{
-		i = 0;
-		while(i < pos)
-		{
-			rb(stack);
-			ft_putstr_fd("rb\n", 1);
-			i++;
-		}
-	}
-	else if (pos > stack->len / 2)
-	{
-		i = 0;
-		while(i < stack->len - pos)
-		{
-			rrb(stack);
-			ft_putstr_fd("rrb\n", 1);
-			i++;
-		}
-	}
-}
-// s_stack *ft_sort4(int *s_a, int *s_b, int *lena, int *lenb)
-// {
-// 	int i;
-// 	s_stack *pab;
-// 	int small;
-// 	small = ft_smallest(s_a, *lena);
-// 	i = 0;
-// 	while(i < small)
-// 	{
-// 		ra(s_a, *lena);
-// 		i++;
-// 	}
-// 	pab = pb(s_a, s_b, lena, lenb);
-// 	s_a = pab->s_a;
-// 	s_b = pab->s_b;
-// 	ft_sort3(s_a);
-// 	pab = pa(s_a, s_b, lena, lenb);
-// 	return (pab);
-// }
 
-s_stacks *ft_twornb(s_stack *s_a, s_stack *s_b)
+void ft_sort4(s_stack *s_a, s_stack *s_b)
 {
 	int small;
-	int big;
-	s_stacks *pab;
 	
 	small = ft_smallest(s_a);
 	ft_rotatea(s_a, small);
-	pab = pb(s_a, s_b);
-	s_a = pab->s_a;
-	s_b = pab->s_b;
+	pb(s_a, s_b);
+	ft_putstr_fd("pb\n", 1);
+	ft_sort3(s_a);
+	pa(s_a, s_b);
+	ft_putstr_fd("pa\n", 1);
+}
+
+void ft_sort5(s_stack *s_a, s_stack *s_b)
+{
+	int small;
+	small = ft_smallest(s_a);
+	ft_rotatea(s_a, small);
+	pb(s_a, s_b);
+	ft_putstr_fd("pb\n", 1);
+	ft_sort4(s_a, s_b);
+	pa(s_a, s_b);
+	ft_putstr_fd("pa\n", 1);
+}
+
+void ft_twornb(s_stack *s_a, s_stack *s_b)
+{
+	int small;
+	int big;
 	
 	big = ft_biggest(s_a);
-	ft_rotatea(s_a, big);
-	pab = pb(s_a, s_b);
-	s_a = pab->s_a;
-	s_b = pab->s_b;
-	
-	return (pab);
+	small = ft_smallest(s_a);
+	if (big < small)
+	{
+		big = ft_biggest(s_a);
+		ft_rotatea(s_a, big);
+		pb(s_a, s_b);
+		ft_putstr_fd("pb\n", 1);
+		small = ft_smallest(s_a);
+		ft_rotatea(s_a, small);
+		pb(s_a, s_b);
+		ft_putstr_fd("pb\n", 1);
+	}
+	else if (big > small)
+	{
+		small = ft_smallest(s_a);
+		ft_rotatea(s_a, small);
+		pb(s_a, s_b);
+		ft_putstr_fd("pb\n", 1);
+		big = ft_biggest(s_a);
+		ft_rotatea(s_a, big);
+		pb(s_a, s_b);
+		ft_putstr_fd("pb\n", 1);
+	}
 }
-s_stacks *ft_sort5(s_stack *s_a, s_stack *s_b)
+void ft_sort(s_stack *s_a, s_stack *s_b)
 {
-	s_stacks *pab;
 	int posa;
 	int big;
 	int posb;
 	
-	pab = ft_twornb(s_a, s_b);
-	s_a = pab->s_a;
-	s_b = pab->s_b;
+	ft_twornb(s_a, s_b);
 	while(s_a->len != 0)
 	{
 		posa = ft_bestmouve(s_a, s_b);
 		posb = ft_position(s_b, s_a->arr[posa]);
 		ft_common(s_a, s_b, posa, posb);
-		pab = pb(s_a, s_b);
-		s_a = pab->s_a;
-		s_b = pab->s_b;
+		pb(s_a, s_b);
+		ft_putstr_fd("pb\n", 1);
 	}
 	big = ft_biggest(s_b);
 	ft_rotateb(s_b, big);
 	while(s_b->len != 0)
 	{
-		pab = pa(s_a, s_b);
-		s_a = pab->s_a;
-		s_b = pab->s_b;
+		pa(s_a, s_b);
+		ft_putstr_fd("pa\n", 1);
 	}
-	return (pab);
 }

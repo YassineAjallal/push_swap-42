@@ -6,7 +6,7 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 11:24:15 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/22 22:24:00 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/23 22:56:06 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,60 +38,30 @@ int main(int ac, char **av)
 {
 	s_stack *s_a;
 	s_stack *s_b;
-	s_stacks *pab;
-	ac++;
 	char *farg;
-	// int i;
 	
-	s_b = malloc(sizeof(s_stack));
-	s_b->arr = NULL;
-	s_b->len = 0;
-	farg = ft_strjarg(av);
-	s_a = ft_getnumbers(farg);
-	pab = ft_sort5(s_a, s_b);
-	// printf("-----------Stack-a---------\n");
-	// i = 0;
-	// while(i < s_a->len)
-	// {
-	// 	printf("%d\n", pab->s_a->arr[i]);
-	// 	i++;
-	// }
-	// printf("----------Stack-b----------\n");
-	// i = 0;
-	// while(i < s_b->len)
-	// {
-	// 	printf("%d\n", pab->s_b->arr[i]);
-	// 	i++;
-	// }
-
-	// i = 0;
-	// printf("-------------a-----------------\n");
-	// while(i < s_a->len)
-	// {
-	// 	printf("%d\n", s_a->arr[i]);
-	// 	i++;
-	// }
-	// i = 0;
-	// printf("-------------b-----------------\n");
-	// while(i < s_b->len)
-	// {
-	// 	printf("%d\n", s_b->arr[i]);
-	// 	i++;
-	// }
-	// printf("-------------------------------\n");
-	// ft_common(s_a, s_b, 5, 5);
-	// i = 0;
-	// printf("-------------a-----------------\n");
-	// while(i < s_a->len)
-	// {
-	// 	printf("%d\n", s_a->arr[i]);
-	// 	i++;
-	// }
-	// printf("-------------b-----------------\n");
-	// i = 0;
-	// while(i < s_b->len)
-	// {
-	// 	printf("%d\n", s_b->arr[i]);
-	// 	i++;
-	// }
+	if (ac > 1)
+	{
+		s_b = malloc(sizeof(s_stack));
+		s_b->arr = NULL;
+		s_b->len = 0;
+		farg = ft_strjarg(av);
+		if (!ft_duplicate(farg))
+		{
+			ft_putstr_fd("Error\n", 2);
+			exit(EXIT_FAILURE);
+		}
+		s_a = ft_getnumbers(farg);
+		if (ft_checksort(s_a))
+		{
+			if (s_a->len == 3)
+				ft_sort3(s_a);
+			else if (s_a->len == 4)
+				ft_sort4(s_a, s_b);
+			else if (s_a->len == 5)
+				ft_sort5(s_a, s_b);
+			else
+				ft_sort(s_a, s_b);
+		}
+	}
 }

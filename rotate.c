@@ -6,7 +6,7 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 20:06:12 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/22 13:31:20 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/23 22:07:41 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,5 @@ void rr(s_stack *s_a, s_stack *s_b)
 {
 	ra(s_a);
 	rb(s_b);
+	ft_putstr_fd("rr\n", 1);
 }

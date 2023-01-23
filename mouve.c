@@ -6,7 +6,7 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 10:32:55 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/22 15:24:55 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/23 15:09:25 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int ft_index(int posa, int posb, int lena, int lenb)
 	}
 	return (posb + posa);
 }
+
 int ft_bestmouve(s_stack *s_a, s_stack *s_b)
 {
 	int i;

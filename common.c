@@ -6,7 +6,7 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 11:14:46 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/22 21:52:55 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/23 22:07:21 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void ft_common(s_stack *s_a, s_stack *s_b, int posa, int posb)
 			while (i < posa)
 			{
 				rr(s_a, s_b);
-				ft_putstr_fd("rr\n", 1);
 				i++;
 			}
 			ft_rotateb(s_b, posb - i);
@@ -39,7 +38,6 @@ void ft_common(s_stack *s_a, s_stack *s_b, int posa, int posb)
 			while (i < posb)
 			{
 				rr(s_a, s_b);
-				ft_putstr_fd("rr\n", 1);
 				i++;
 			}
 			ft_rotatea(s_a, posa - i);
@@ -53,7 +51,6 @@ void ft_common(s_stack *s_a, s_stack *s_b, int posa, int posb)
 			while (i < s_a->len - posa)
 			{
 				rrr(s_a, s_b);
-				ft_putstr_fd("rrr\n", 1);
 				i++;
 			}
 			ft_rotateb(s_b, posb + i);
@@ -64,7 +61,6 @@ void ft_common(s_stack *s_a, s_stack *s_b, int posa, int posb)
 			while (i < s_b->len - posb)
 			{
 				rrr(s_a, s_b);
-				ft_putstr_fd("rrr\n", 1);
 				i++;
 			}
 			ft_rotatea(s_a, posa + i);

@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   checksort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 10:20:04 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/23 22:05:30 by yajallal         ###   ########.fr       */
+/*   Created: 2023/01/23 21:46:08 by yajallal          #+#    #+#             */
+/*   Updated: 2023/01/23 21:53:49 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(s_stack *s_a)
+int ft_checksort(s_stack *s_a)
 {
-	int	tmp;
+	int i;
+	int number;
 
-	tmp = s_a->arr[0];
-	s_a->arr[0] = s_a->arr[1];
-	s_a->arr[1] = tmp;
-	ft_putstr_fd("sa\n", 1);
-}
-
-void	sb(s_stack *s_b)
-{
-	int	tmp;
-
-	tmp = s_b->arr[0];
-	s_b->arr[0] = s_b->arr[1];
-	s_b->arr[1] = tmp;
-}
-
-void	ss(s_stack *s_a, s_stack *s_b)
-{
-	sa(s_a);
-	sb(s_b);
+	i = 1;
+	number = s_a->arr[0];
+	while (i < s_a->len)
+	{
+		if (s_a->arr[i] > number)
+			number = s_a->arr[i];
+		else
+			return (1);
+		i++;
+	}
+	return (0);
 }

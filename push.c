@@ -6,7 +6,7 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 09:02:58 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/21 19:58:13 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/23 22:30:40 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,33 +52,20 @@ s_stack *ft_pop(s_stack *stack)
 	return (stack);
 }
 
-s_stacks *pa(s_stack *s_a, s_stack *s_b)
+void pa(s_stack *s_a, s_stack *s_b)
 {
-	s_stacks *pab;
-	pab = malloc(sizeof(s_stacks));
-	if (s_b->len <= 0)
-		return (NULL);
-	else
+	if (s_b->len > 0)
 	{
-		pab->s_a = ft_push(s_a, s_b->arr[0]);
-		pab->s_b = ft_pop(s_b);
-		printf("pa\n");
-		return (pab);
+		ft_push(s_a, s_b->arr[0]);
+		ft_pop(s_b);
 	}
 }
 
-s_stacks *pb(s_stack *s_a, s_stack *s_b)
+void pb(s_stack *s_a, s_stack *s_b)
 {
-	s_stacks *pab;
-	
-	pab = malloc(sizeof(s_stacks));
-	if (s_a->len <= 0)
-		return (NULL);
-	else
+	if (s_a->len > 0)
 	{
-		pab->s_b = ft_push(s_b, s_a->arr[0]);
-		pab->s_a = ft_pop(s_a);
-		printf("pb\n");
-		return (pab);
+		ft_push(s_b, s_a->arr[0]);
+		ft_pop(s_a);
 	}
 }
