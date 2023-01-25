@@ -6,20 +6,20 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 20:19:06 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/23 22:07:51 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/24 11:16:42 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void rra(s_stack *s_a)
+void	rra(t_stack *s_a)
 {
-	int i;
-	int tmp;
+	int	i;
+	int	tmp;
 
 	i = s_a->len - 1;
 	tmp = s_a->arr[i];
-	while(i > 0)
+	while (i > 0)
 	{
 		s_a->arr[i] = s_a->arr[i - 1];
 		i--;
@@ -27,14 +27,14 @@ void rra(s_stack *s_a)
 	s_a->arr[i] = tmp;
 }
 
-void rrb(s_stack *s_b)
+void	rrb(t_stack *s_b)
 {
-	int i;
-	int tmp;
+	int	i;
+	int	tmp;
 
 	i = s_b->len - 1;
 	tmp = s_b->arr[i];
-	while(i > 0)
+	while (i > 0)
 	{
 		s_b->arr[i] = s_b->arr[i - 1];
 		i--;
@@ -42,7 +42,7 @@ void rrb(s_stack *s_b)
 	s_b->arr[i] = tmp;
 }
 
-void rrr(s_stack *s_a, s_stack *s_b)
+void	rrr(t_stack *s_a, t_stack *s_b)
 {
 	rra(s_a);
 	rrb(s_b);

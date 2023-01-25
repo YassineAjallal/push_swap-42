@@ -6,85 +6,97 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 16:25:29 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/23 22:32:44 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/25 14:51:41 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-#include "./libft/libft.h"
+# include <stdio.h>
+# include <stdlib.h>
+# include <limits.h>
+# include "./libft/libft.h"
 
-typedef struct t_stack
+typedef struct s_stack
 {
-	int *arr;
-	int len;
-} s_stack;
+	int	*arr;
+	int	len;
+}	t_stack;
 
-typedef struct t_stacks
+typedef struct s_stacks
 {
-	s_stack *s_a;
-	s_stack *s_b;
-} s_stacks;
+	t_stack	*s_a;
+	t_stack	*s_b;
+}	t_stacks;
+
+// push_swap.c
+void	ft_sorting(t_stack *s_a, t_stack *s_b);
 
 // errors.c
 int		ft_integers(char *farg);
-int		ft_range (char *farg);
-char	*ft_strjarg(char **av);
+int		ft_range(char *farg);
+int		ft_skip(char *av);
+int		ft_checkdup(int *arr, int len);
+int		ft_duplicate(char *farg);
 
 // arrays.c
 void	ft_free2d(char **str);
-int 	ft_calc2d(char **str);
-int		ft_duplicate(char *farg);
+int		ft_calc2d(char **str);
 
 // swap.c
-void	sa(s_stack *s_a);
-void	sb(s_stack *s_b);
-void	ss(s_stack *s_a, s_stack *s_b);
+void	sa(t_stack *s_a);
+void	sb(t_stack *s_b);
+void	ss(t_stack *s_a, t_stack *s_b);
 
 // rotate.c
-void ra(s_stack *s_a);
-void rb(s_stack *s_b);
-void rr(s_stack *s_a, s_stack *s_b);
+void	ra(t_stack *s_a);
+void	rb(t_stack *s_b);
+void	rr(t_stack *s_a, t_stack *s_b);
 
 // reverse.c
-void rra(s_stack *s_a);
-void rrb(s_stack *s_b);
-void rrr(s_stack *s_a, s_stack *s_b);
+void	rra(t_stack *s_a);
+void	rrb(t_stack *s_b);
+void	rrr(t_stack *s_a, t_stack *s_b);
 
 // push.c
-s_stack 	*ft_push(s_stack *stack, int number);
-s_stack 	*ft_pop(s_stack *stack);
-void	pa(s_stack *s_a, s_stack *s_b);
-void	pb(s_stack *s_a, s_stack *s_b);
+t_stack	*ft_push(t_stack *stack, int number);
+t_stack	*ft_pop(t_stack *stack);
+void	pa(t_stack *s_a, t_stack *s_b);
+void	pb(t_stack *s_a, t_stack *s_b);
 
 // sort.c
-void ft_sort3(s_stack *stack);
-void ft_sort(s_stack *s_a, s_stack *s_b);
-void ft_sort4(s_stack *s_a, s_stack *s_b);
-void ft_sort5(s_stack *s_a, s_stack *s_b);
+void	ft_sort(t_stack *s_a, t_stack *s_b);
+void	ft_sort4(t_stack *s_a, t_stack *s_b);
+void	ft_sort5(t_stack *s_a, t_stack *s_b);
+
+// sort3.c
+void	ft_sort3(t_stack *stack);
+void	ft_firstc(t_stack *stack);
+void	ft_secondc(t_stack *stack);
 
 // rotateab.c
-void ft_rotatea(s_stack *stack, int pos);
-void ft_rotateb(s_stack *stack, int pos);
+void	ft_rotatea(t_stack *stack, int pos);
+void	ft_rotateb(t_stack *stack, int pos);
 
 // bigsmall.c
-int ft_biggest(s_stack *stack);
-int ft_smallest(s_stack *stack);
-void ft_twornb(s_stack *s_a, s_stack *s_b);
+int		ft_biggest(t_stack *stack);
+int		ft_smallest(t_stack *stack);
+void	ft_twornb(t_stack *s_a, t_stack *s_b);
 
 // mouve.c
-int ft_position(s_stack *stack, int number);
-int ft_index(int posa, int posb, int lena, int lenb);
-int ft_bestmouve(s_stack *s_a, s_stack *s_b);
+int		ft_position(t_stack *stack, int number);
+int		ft_index(int posa, int posb, int lena, int lenb);
+int		ft_bestmouve(t_stack *s_a, t_stack *s_b);
 
-void ft_common(s_stack *s_a, s_stack *s_b, int posa, int posb);
-void ft_swap(s_stack *s_a, s_stack *s_b, int posa, int posb);
-void ft_rcommon(s_stack *s_a, s_stack *s_b, int posa, int posb);
+// common.c
+void	ft_common(t_stack *s_a, t_stack *s_b, int posa, int posb);
+void	ft_less2(t_stack *s_a, t_stack *s_b, int posa, int posb);
+void	ft_great2(t_stack *s_a, t_stack *s_b, int posa, int posb);
 
-int ft_checksort(s_stack *s_a);
+// checksort.c
+int		ft_checksort(t_stack *s_a);
+t_stack	*ft_getnumbers(char *farg);
+char	*ft_strjarg(char **av);
 
 #endif

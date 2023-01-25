@@ -6,26 +6,26 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 10:32:55 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/23 15:09:25 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/25 14:38:51 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_position(s_stack *stack, int number)
+int	ft_position(t_stack *stack, int number)
 {
-	int small;
-	int bigindex;
-	int i;
-	int smallvalue;
-	
+	int	small;
+	int	bigindex;
+	int	i;
+	int	smallvalue;
+
 	small = ft_smallest(stack);
 	smallvalue = stack->arr[small];
 	bigindex = small;
 	i = 0;
-	while(i < stack->len)
+	while (i < stack->len)
 	{
-		if(stack->arr[i] > smallvalue)
+		if (stack->arr[i] > smallvalue)
 		{
 			if (number > stack->arr[i])
 			{
@@ -38,7 +38,7 @@ int ft_position(s_stack *stack, int number)
 	return (bigindex);
 }
 
-int ft_index(int posa, int posb, int lena, int lenb)
+int	ft_index(int posa, int posb, int lena, int lenb)
 {
 	if (posa > lena / 2)
 	{
@@ -51,18 +51,19 @@ int ft_index(int posa, int posb, int lena, int lenb)
 	return (posb + posa);
 }
 
-int ft_bestmouve(s_stack *s_a, s_stack *s_b)
+int	ft_bestmouve(t_stack *s_a, t_stack *s_b)
 {
-	int i;
+	int	i;
+	int	bestmouve;
+	int	pos;
+	int	tmp;
+	int	index;
 
-	int bestmouve;
-	int pos;
-	int tmp;
-	int index = 0;
+	index = 0;
 	pos = ft_position(s_b, s_a->arr[0]);
 	bestmouve = ft_index(0, pos, s_a->len, s_b->len);
 	i = 1;
-	while(i < s_a->len)
+	while (i < s_a->len)
 	{
 		pos = ft_position(s_b, s_a->arr[i]);
 		tmp = ft_index(i, pos, s_a->len, s_b->len);

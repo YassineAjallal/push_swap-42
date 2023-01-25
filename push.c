@@ -6,24 +6,24 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 09:02:58 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/23 22:30:40 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/24 11:16:28 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-s_stack *ft_push(s_stack *stack, int number)
+t_stack	*ft_push(t_stack *stack, int number)
 {
-	int *tmp;
-	int i;
-	int j;
-	
+	int	*tmp;
+	int	i;
+	int	j;
+
 	i = 1;
 	j = 0;
 	stack->len += 1;
 	tmp = malloc(stack->len * sizeof(int));
 	tmp[0] = number;
-	while(i < stack->len)
+	while (i < stack->len)
 	{
 		tmp[i] = stack->arr[j];
 		i++;
@@ -34,15 +34,15 @@ s_stack *ft_push(s_stack *stack, int number)
 	return (stack);
 }
 
-s_stack *ft_pop(s_stack *stack)
+t_stack	*ft_pop(t_stack *stack)
 {
-	int *tmp;
-	int i;
-	
+	int	*tmp;
+	int	i;
+
 	i = 0;
 	stack->len -= 1;
 	tmp = malloc(stack->len * sizeof(int));
-	while(i < stack->len)
+	while (i < stack->len)
 	{
 		tmp[i] = stack->arr[i + 1];
 		i++;
@@ -52,20 +52,20 @@ s_stack *ft_pop(s_stack *stack)
 	return (stack);
 }
 
-void pa(s_stack *s_a, s_stack *s_b)
+void	pa(t_stack *s_a, t_stack *s_b)
 {
 	if (s_b->len > 0)
 	{
-		ft_push(s_a, s_b->arr[0]);
-		ft_pop(s_b);
+		s_a = ft_push(s_a, s_b->arr[0]);
+		s_b = ft_pop(s_b);
 	}
 }
 
-void pb(s_stack *s_a, s_stack *s_b)
+void	pb(t_stack *s_a, t_stack *s_b)
 {
 	if (s_a->len > 0)
 	{
-		ft_push(s_b, s_a->arr[0]);
-		ft_pop(s_a);
+		s_b = ft_push(s_b, s_a->arr[0]);
+		s_a = ft_pop(s_a);
 	}
 }
