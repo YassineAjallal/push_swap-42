@@ -6,14 +6,13 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 16:25:29 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/25 14:51:41 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/30 15:42:51 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h>
 # include <stdlib.h>
 # include <limits.h>
 # include "./libft/libft.h"
@@ -23,12 +22,6 @@ typedef struct s_stack
 	int	*arr;
 	int	len;
 }	t_stack;
-
-typedef struct s_stacks
-{
-	t_stack	*s_a;
-	t_stack	*s_b;
-}	t_stacks;
 
 // push_swap.c
 void	ft_sorting(t_stack *s_a, t_stack *s_b);
@@ -43,6 +36,7 @@ int		ft_duplicate(char *farg);
 // arrays.c
 void	ft_free2d(char **str);
 int		ft_calc2d(char **str);
+void	ft_freestack(t_stack *stack);
 
 // swap.c
 void	sa(t_stack *s_a);
@@ -98,5 +92,9 @@ void	ft_great2(t_stack *s_a, t_stack *s_b, int posa, int posb);
 int		ft_checksort(t_stack *s_a);
 t_stack	*ft_getnumbers(char *farg);
 char	*ft_strjarg(char **av);
+
+// stacka.c
+void	ft_pusha(t_stack *s_a, t_stack *s_b);
+int		ft_positiona(t_stack *stack, int number);
 
 #endif

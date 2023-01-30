@@ -6,7 +6,7 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 11:24:15 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/25 14:51:50 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/26 15:37:59 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ void	ft_sorting(t_stack *s_a, t_stack *s_b)
 	else if (s_a->len == 5)
 		ft_sort5(s_a, s_b);
 	else
+	{
 		ft_sort(s_a, s_b);
+		ft_pusha(s_a, s_b);
+	}
 }
 
 int	main(int ac, char **av)
@@ -46,5 +49,8 @@ int	main(int ac, char **av)
 		s_a = ft_getnumbers(farg);
 		if (ft_checksort(s_a))
 			ft_sorting(s_a, s_b);
+		ft_freestack(s_b);
+		ft_freestack(s_a);
 	}
+	exit(EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 12:31:30 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/25 14:52:11 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/30 14:39:38 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,11 @@ void	ft_twornb(t_stack *s_a, t_stack *s_b)
 void	ft_sort(t_stack *s_a, t_stack *s_b)
 {
 	int	posa;
-	int	big;
 	int	posb;
 	int	small;
 
 	ft_twornb(s_a, s_b);
-	while (s_a->len != 0)
+	while (s_a->len != 3)
 	{
 		posa = ft_bestmouve(s_a, s_b);
 		posb = ft_position(s_b, s_a->arr[posa]);
@@ -66,11 +65,5 @@ void	ft_sort(t_stack *s_a, t_stack *s_b)
 		pb(s_a, s_b);
 		ft_putstr_fd("pb\n", 1);
 	}
-	big = ft_biggest(s_b);
-	ft_rotateb(s_b, big);
-	while (s_b->len != 0)
-	{
-		pa(s_a, s_b);
-		ft_putstr_fd("pa\n", 1);
-	}
+	ft_sort3(s_a);
 }

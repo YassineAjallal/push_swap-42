@@ -6,7 +6,7 @@
 /*   By: yajallal < yajallal@student.1337.ma >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 10:32:55 by yajallal          #+#    #+#             */
-/*   Updated: 2023/01/25 14:38:51 by yajallal         ###   ########.fr       */
+/*   Updated: 2023/01/26 12:53:55 by yajallal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	ft_bestmouve(t_stack *s_a, t_stack *s_b)
 	{
 		pos = ft_position(s_b, s_a->arr[i]);
 		tmp = ft_index(i, pos, s_a->len, s_b->len);
-		if (tmp < bestmouve)
+		if (tmp <= bestmouve)
 		{
 			bestmouve = tmp;
 			index = i;

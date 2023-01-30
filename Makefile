@@ -2,7 +2,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 NAME = push_swap
-SRC = push_swap.c push.c swap.c reverse.c rotate.c arrays.c errors.c sort.c bigsmall.c mouve.c common.c rotateab.c checksort.c sort3.c
+SRC = push_swap.c push.c swap.c reverse.c rotate.c arrays.c errors.c sort.c bigsmall.c mouve.c common.c rotateab.c checksort.c sort3.c stacka.c
 LIB_PATH = ./libft/libft.a
 
 all: $(NAME)
